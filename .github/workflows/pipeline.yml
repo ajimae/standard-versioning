@@ -1,0 +1,46 @@
+name: "Protofiles stubs generator"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  # build:
+  #   runs-on: ubuntu-latest
+  #   if: "!contains(github.event.head_commit.message, '[skip ci]')"
+  #   steps:
+  #     - uses: actions/checkout@v1
+
+  #     - name: Setup git user
+  #       run: bash ./cli/git-setup.sh
+
+  #     - name: Start build
+  #       run: bash ./cli/build.sh
+  #       env:
+  #         GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  
+  version:
+    # Only version on push to master
+    runs-on: ubuntu-latest
+    if: "github.event_name == 'push' && github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, '[skip ci]')"
+    
+    # Waits for test jobs for each Node.js version to complete
+    # needs: [build]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+  
+    # - name: Setup Node.js
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     node-version: 12.x
+  
+    # - name: Install dependencies
+    #   run: chmod +x ./cli/semantic-dependencies.sh && ./cli/semantic-dependencies.sh 
+  
+    - name: Version
+      run: npx semantic-release
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
