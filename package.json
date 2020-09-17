@@ -1,6 +1,6 @@
 {
   "name": "standard-versioning",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "standard versioning using semver",
   "main": "index.js",
   "scripts": {

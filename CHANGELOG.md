@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/ajimae/standard-versioning/compare/v1.0.0...v1.0.1) (2020-09-17)
+
+
+### Bug Fixes
+
+* **pipeline.yml:** remove unwanted code from pipeline.yml file ([1ff6b74](https://github.com/ajimae/standard-versioning/commit/1ff6b74f8693fa8d4d32353e4fd17ca1562dcdc2))
+
 # 1.0.0 (2020-09-17)
 
 
